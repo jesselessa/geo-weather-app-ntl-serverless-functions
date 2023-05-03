@@ -1,9 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+const fetch = require("node-fetch");
 
 function App() {
   const [city, setCity] = useState("Paris");
   const [temperature, setTemperature] = useState(0); // To fix bug with undefined
+
+  //* API call on page loading
+  useEffect(() => {
+    getWeatherData("Paris");
+  }, []);
+
+  function getWeatherData(cityName) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}&units=metric`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.cod === "404") {
+          alert("Entrée invalide. Veuillez indiquer un autre nom de ville.");
+          getWeatherData("Paris");
+        } else {
+          setCity(json.name);
+          setTemperature(json.main.temp);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
   return (
     <div className="App">
@@ -21,7 +46,7 @@ function App() {
 
         <button
           id="changer"
-          onClick={() => prompt("Entrez le nom d'une ville.")}
+          onClick={() => getWeatherData(prompt("Entrez le nom d'une ville."))}
         >
           CHANGER DE VILLE
         </button>
