@@ -52,11 +52,6 @@ function App() {
     callAPI(url);
   }
 
-  // function getWeatherData(city) {
-  //   const url = `api/getWeatherData?city=${city}`; // api = shortcut for .netlify/functions set in netlify.toml
-  //   callAPI(url);
-  // }
-
   async function callAPI(url) {
     await fetch(url)
       .then((res) => res.json())
