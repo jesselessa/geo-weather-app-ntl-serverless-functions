@@ -46,20 +46,20 @@ function App() {
     getWeatherData("Paris");
   }, []);
 
-  function getWeatherData(cityName) {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}&units=metric`;
-
+  function getWeatherData(city) {
+    const url = `api/getWeatherData?city=${city}`; // api = shortcut for .netlify/functions set in netlify.toml
     callAPI(url);
   }
 
-  async function callAPI(url) {
-    await fetch(url)
+  function callAPI(url) {
+    fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        if (json.cod == "404") {
+        if (json.cod === "404") {
           alert("Entrée invalide. Veuillez indiquer un autre nom de ville.");
           getWeatherData("Paris");
         } else {
+          console.log(json);
           setCity(json.name);
           setTemperature(json.main.temp);
         }
@@ -78,7 +78,8 @@ function App() {
 
         <div id="temperature">
           <span id="temperature-label">
-            {Math.round(temperature * 10) / 10} °C
+            {temperature}
+            {/* {Math.round(temperature * 10) / 10} °C */}
             {/* Round to 1 decimal place */}
           </span>
         </div>
