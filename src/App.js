@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-const fetch = require("node-fetch");
 
 function App() {
   const [city, setCity] = useState("Paris");
   const [temperature, setTemperature] = useState(0); // To fix bug with undefined
 
-  // !!!!!!!!! WARNING IF YOU WANT TO USE GEOLOCATION !!!!!!!!! \\ You won't be able to hide your API key on your server because the JS navigator object is used for browser detection. So it must necessarily access your API key in order to get your local device geographical position
+  // !!!!!!!!!!!!!!!! WARNING IF YOU WANT TO USE GEOLOCATION !!!!!!!!!!!!!!!!! \\ 
+  //! You won't be able to hide your API key on your server because the JS navigator object is used for browser detection. So it must necessarily access your API key in order to get your local device geographical position
 
   // !!! So, if you want to use geolocation feature on this app, uncomment the code below by replacing the template literals (${apiKey}) by your own key, and comment the other useEffect code
 
@@ -51,21 +51,21 @@ function App() {
     callAPI(url);
   }
 
-  function callAPI(url) {
-    fetch(url)
+  async function callAPI(url) {
+    await fetch(url)
       .then((res) => res.json())
-      .then((json) => {
-        if (json.cod === "404") {
+      .then((data) => {
+        if (data.status === 404) {
           alert("Entrée invalide. Veuillez indiquer un autre nom de ville.");
           getWeatherData("Paris");
         } else {
-          console.log(json);
-          setCity(json.name);
-          setTemperature(json.main.temp);
+          console.log(data);
+          setCity(data.name);
+          setTemperature(data.main.temp);
         }
       })
       .catch((error) => {
-        console.error(error);
+        console.error("Failed to fetch data:", error);
       });
   }
 

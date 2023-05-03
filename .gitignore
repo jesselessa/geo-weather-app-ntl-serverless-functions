@@ -13,7 +13,6 @@
 
 # local Netlify folders
 .netlify
-/netlify
 
 # misc
 .env
