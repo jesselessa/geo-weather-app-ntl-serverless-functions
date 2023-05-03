@@ -77,11 +77,7 @@ function App() {
         <p id="ville">{city}</p>
 
         <div id="temperature">
-          <span id="temperature-label">
-            {temperature}
-            {/* {Math.round(temperature * 10) / 10} °C */}
-            {/* Round to 1 decimal place */}
-          </span>
+          <span id="temperature-label">{temperature} °C</span>
         </div>
 
         <button
