@@ -5,7 +5,7 @@ function App() {
   const [city, setCity] = useState("Paris");
   const [temperature, setTemperature] = useState(0); // To fix bug with undefined
 
-  // !!!!!!!!!!!!!!!! WARNING IF YOU WANT TO USE GEOLOCATION !!!!!!!!!!!!!!!!! \\ 
+  // !!!!!!!!!!!!!!!! WARNING IF YOU WANT TO USE GEOLOCATION !!!!!!!!!!!!!!!!! \\
   //! You won't be able to hide your API key on your server because the JS navigator object is used for browser detection. So it must necessarily access your API key in order to get your local device geographical position
 
   // !!! So, if you want to use geolocation feature on this app, uncomment the code below by replacing the template literals (${apiKey}) by your own key, and comment the other useEffect code
@@ -59,7 +59,6 @@ function App() {
           alert("Entrée invalide. Veuillez indiquer un autre nom de ville.");
           getWeatherData("Paris");
         } else {
-          console.log(data);
           setCity(data.name);
           setTemperature(data.main.temp);
         }
@@ -77,7 +76,7 @@ function App() {
         <p id="ville">{city}</p>
 
         <div id="temperature">
-          <span id="temperature-label">{temperature} °C</span>
+          <span id="temperature-label">{Math.round(temperature)} °C</span>
         </div>
 
         <button
