@@ -8,16 +8,20 @@ function App() {
 
   //* API call on page loading
   useEffect(() => {
-    getWeatherData("Paris");
+    getWeatherData("paris");
   }, []);
 
   function getWeatherData(cityName) {
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}&units=metric`;
 
-    fetch(url)
+    callAPI(url);
+  }
+
+  async function callAPI(url) {
+    await fetch(url)
       .then((res) => res.json())
       .then((json) => {
-        if (json.cod === "404") {
+        if (json.cod == "404") {
           alert("Entrée invalide. Veuillez indiquer un autre nom de ville.");
           getWeatherData("Paris");
         } else {
