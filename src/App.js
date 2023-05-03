@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [city, setCity] = useState("Paris");
+  const [temperature, setTemperature] = useState(0); // To fix bug with undefined
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1>Météo</h1>
+
+      <div className="card">
+        <p id="ville">{city}</p>
+
+        <div id="temperature">
+          <span id="temperature-label">
+            {Math.round(temperature * 10) / 10} °C
+            {/* Round to 1 decimal place */}
+          </span>
+        </div>
+
+        <button
+          id="changer"
+          onClick={() => prompt("Entrez le nom d'une ville.")}
         >
-          Learn React
-        </a>
-      </header>
+          CHANGER DE VILLE
+        </button>
+      </div>
     </div>
   );
 }
