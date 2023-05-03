@@ -44,12 +44,18 @@ function App() {
   //* API call on page loading
   useEffect(() => {
     getWeatherData("Paris");
-  }, []);
+  }, [city]);
 
   function getWeatherData(city) {
     const url = `api/getWeatherData?city=${city}`; // api = shortcut for .netlify/functions set in netlify.toml
+
     callAPI(url);
   }
+
+  // function getWeatherData(city) {
+  //   const url = `api/getWeatherData?city=${city}`; // api = shortcut for .netlify/functions set in netlify.toml
+  //   callAPI(url);
+  // }
 
   async function callAPI(url) {
     await fetch(url)
