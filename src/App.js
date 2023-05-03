@@ -6,9 +6,44 @@ function App() {
   const [city, setCity] = useState("Paris");
   const [temperature, setTemperature] = useState(0); // To fix bug with undefined
 
+  // !!!!!!!!! WARNING IF YOU WANT TO USE GEOLOCATION !!!!!!!!! \\ You won't be able to hide your API key on your server because the JS navigator object is used for browser detection. So it must necessarily access your API key in order to get your local device geographical position
+
+  // !!! So, if you want to use geolocation feature on this app, uncomment the code below by replacing the template literals (${apiKey}) by your own key, and comment the other useEffect code
+
+  // !!!!!!!!! DO NOT PUSH YOUR EXPOSED KEY ON GITHUB !!!!!!!!! \\
+
+  // Check if geolocation is available in user's browser on page loading
+  // useEffect(() => {
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.watchPosition(
+  //       (position) => {
+  //         const url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  //         callAPI(url);
+  //       },
+  //       error,
+  //       options
+  //     );
+  //   } else {
+  //     alert("Votre navigateur ne prend pas en charge la géolocalisation.");
+  //     getWeatherData("Paris");
+  //   }
+
+  //   function error() {
+  //     alert(
+  //       "Problème ou refus de géolocalisation.\n\nEn cas de refus, si vous changez d'avis, videz le cache de votre navigateur, avant de vous reconnecter à l'application."
+  //     );
+  //     getWeatherData("Paris");
+  //   }
+
+  //   var options = {
+  //     enableHighAccuracy: true,
+  //   };
+  // }, []);
+
   //* API call on page loading
   useEffect(() => {
-    getWeatherData("paris");
+    getWeatherData("Paris");
   }, []);
 
   function getWeatherData(cityName) {
