@@ -56,8 +56,8 @@ function App() {
     await fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 404) {
-          alert("Entrée invalide. Veuillez indiquer un autre nom de ville.");
+        if (data.status === 404 || data.name === "") {
+          alert("Invalid entry. Enter another city name.");
           getWeatherData("Paris");
         } else {
           setCity(data.name);
@@ -71,7 +71,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Météo</h1>
+      <h1>Weather App</h1>
 
       <div className="card">
         <p id="ville">{city}</p>
@@ -82,9 +82,9 @@ function App() {
 
         <button
           id="changer"
-          onClick={() => getWeatherData(prompt("Entrez le nom d'une ville."))}
+          onClick={() => getWeatherData(prompt("Enter a city name."))}
         >
-          CHANGER DE VILLE
+          CHANGE CITY
         </button>
       </div>
     </div>
