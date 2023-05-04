@@ -56,10 +56,11 @@ function App() {
     await fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        if (data.status === 404 || data.name === "") {
+        if (data.status === 404 || data.status === 400) {
           alert("Invalid entry. Enter another city name.");
           getWeatherData("Paris");
         } else {
+          console.log(data);
           setCity(data.name);
           setTemperature(data.main.temp);
         }
