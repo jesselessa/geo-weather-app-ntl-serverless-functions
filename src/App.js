@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
+import ScreenMsg from "./components/ScreenMsg";
 
 function App() {
   const [city, setCity] = useState("Paris");
@@ -72,6 +73,8 @@ function App() {
 
   return (
     <div className="App">
+      <ScreenMsg />
+
       <h1>Weather App</h1>
 
       <div className="card">
