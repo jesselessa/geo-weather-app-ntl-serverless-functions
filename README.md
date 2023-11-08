@@ -1,7 +1,7 @@
 # geo-weather-app-ntl-serverless-functions
-A weather app created with React and Netlify serverless functions which collects data from any city thanks to OpenWeatherMap API
+## 👉 https://jesselessa-weather-app-ntl-func.netlify.app/
 
-## Website Link to project : https://jesselessa-weather-app-ntl-func.netlify.app/
+A weather app created with React and Netlify serverless functions which collects data from any city thanks to OpenWeatherMap API
 
 # Getting Started with Create React App
 
