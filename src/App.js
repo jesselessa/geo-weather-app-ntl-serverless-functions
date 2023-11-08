@@ -73,7 +73,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>React Weather App</h1>
+      <h1>Weather App</h1>
 
       <div className="card">
         <p id="ville">{city}</p>
