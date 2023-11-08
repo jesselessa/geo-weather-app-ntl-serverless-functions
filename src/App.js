@@ -39,12 +39,14 @@ function App() {
   //   var options = {
   //     enableHighAccuracy: true,
   //   };
+  // eslint-disable-next-line
   // }, []);
 
   //* API call on page loading
   useEffect(() => {
     getWeatherData("Paris");
-  });
+    // eslint-disable-next-line
+  }, []);
 
   function getWeatherData(city) {
     const url = `api/getWeatherData?city=${city}`; // api = shortcut for .netlify/functions set in netlify.toml
