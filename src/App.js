@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import ScreenMsg from "./components/ScreenMsg";
 
 function App() {
   const [city, setCity] = useState("Paris");
@@ -45,7 +44,7 @@ function App() {
   //* API call on page loading
   useEffect(() => {
     getWeatherData("Paris");
-  }, []);
+  });
 
   function getWeatherData(city) {
     const url = `api/getWeatherData?city=${city}`; // api = shortcut for .netlify/functions set in netlify.toml
@@ -61,7 +60,6 @@ function App() {
           alert("Invalid entry. Enter another city name.");
           getWeatherData("Paris");
         } else {
-          console.log(data);
           setCity(data.name);
           setTemperature(data.main.temp);
         }
@@ -73,9 +71,7 @@ function App() {
 
   return (
     <div className="App">
-      <ScreenMsg />
-
-      <h1>Weather App</h1>
+      <h1>React Weather App</h1>
 
       <div className="card">
         <p id="ville">{city}</p>
