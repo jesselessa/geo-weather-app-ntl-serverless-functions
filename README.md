@@ -1,7 +1,16 @@
 # geo-weather-app-ntl-serverless-functions
-## 👉 https://jesselessa-weather-app-ntl-func.netlify.app/
 
-A weather app created with React and Netlify serverless functions which collects data from any city thanks to OpenWeatherMap API
+A weather app created with React and Netlify serverless functions which collects weather from any city in the world, thanks to OpenWeatherMap API
+
+## WARNING MESSAGE !!!
+
+If you want to use geolocation in your app, you must know that you will not be able to hide your API key on your server because the JavaScript navigator object is used for browser detection. Therefore, the latter must necessarily access your API key in order to get your local device geographical position.
+
+To use geolocation, you must uncomment the custom code in App.js and replace the template literals (${apiKey}) by your own key, and comment the other useEffect code.
+
+To get an API key, you must create an account first on OpenWeatherMap API website : https://openweathermap.org/
+
+!!!!!!!!!! DO NOT PUSH YOUR EXPOSED KEY ON GITHUB !!!!!!!!!!!
 
 # Getting Started with Create React App
 
