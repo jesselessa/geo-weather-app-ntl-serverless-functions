@@ -14,7 +14,6 @@ function App() {
 
   // Check if geolocation is available in user's browser on page loading
   useEffect(() => {
-
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(
         (position) => {
