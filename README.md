@@ -15,7 +15,7 @@ A weather application that collects weather data from any city in the world, tha
 - [Stay Updated](#stay-updated)
 - [Contact](#contact)
 
-## Stack 
+## Stack
 
 This project has been created with **React** using **Netlify serverless functions**.
 
@@ -46,9 +46,11 @@ To get an API key, you must first create an account on [OpenWeatherMap API websi
 2. Clone the repository : `git clone https://github.com/jesselessa/geo-weather-app-ntl-serverless-functions.git`
 3. Navigate to the project directory : `cd geo-weather-app-ntl-serverless-functions`
 4. Inside the project directory :
-  - Install the project dependencies : `npm install`
-  - Run the application in development mode : `npm start`
-5. Open http://localhost:3000 in your browser to view the development server.
+
+- Install the project dependencies : `npm install`
+- Run the application in development mode using Netlify serverless function : `netlify dev` or its shortcut `ntl dev`
+
+5. Open http://localhost:8888 in your browser to view the development server.
 
 ## Getting Started with Create React App
 
@@ -137,4 +139,3 @@ For inquiries, contact me via [LinkedIn](https://www.linkedin.com/in/jessica-ele
 ---
 
 &copy; 2024, Jessica ELESSA - All rights reserved
-
