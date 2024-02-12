@@ -5,19 +5,15 @@ function App() {
   const [city, setCity] = useState("Paris");
   const [temperature, setTemperature] = useState(0); // To fix bug with undefined
 
-  // !!!!!!!!!!!!!!!! WARNING IF YOU WANT TO USE GEOLOCATION !!!!!!!!!!!!!!!!! \\
-  //! You won't be able to hide your API key on your server because the JS navigator object is used for browser detection. So it must necessarily access your API key in order to get your local device geographical position
-
-  // !!! So, if you want to use geolocation feature on this app, uncomment the code below by replacing the template literals (${apiKey}) by your own key, and comment the other useEffect code
-
-  // !!!!!!!!! DO NOT PUSH YOUR EXPOSED KEY ON GITHUB !!!!!!!!! \\
+  //!--------- WARNING IF YOU WANT TO USE GEOLOCATION ---------!\\
+  // !!!!!!! DO NOT PUSH YOUR EXPOSED API KEY ON GITHUB !!!!!!! \\
 
   // Check if geolocation is available in user's browser on page loading
   useEffect(() => {
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(
         (position) => {
-          const url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+          const url = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`; // Replace by your actual API key
 
           callAPI(url);
         },
@@ -42,7 +38,7 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-  //TODO - Uncomment below if you don't want to use geolocation and comment above code
+  //TODO - Uncomment below if you don't want to use geolocation and comment useEffect function above
   // // API call on page loading
   // useEffect(() => {
   //   getWeatherData("Paris");
