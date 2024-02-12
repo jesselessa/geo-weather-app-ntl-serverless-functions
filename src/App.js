@@ -10,6 +10,10 @@ function App() {
 
   // Check if geolocation is available in user's browser on page loading
   useEffect(() => {
+    var options = {
+      enableHighAccuracy: true,
+    };
+
     if (navigator.geolocation) {
       navigator.geolocation.watchPosition(
         (position) => {
@@ -32,9 +36,6 @@ function App() {
       getWeatherData("Paris");
     }
 
-    var options = {
-      enableHighAccuracy: true,
-    };
     // eslint-disable-next-line
   }, []);
 
