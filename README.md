@@ -46,10 +46,8 @@ To get an API key, you must first create an account on [OpenWeatherMap API websi
 2. Clone the repository : `git clone https://github.com/jesselessa/geo-weather-app-ntl-serverless-functions.git`
 3. Navigate to the project directory : `cd geo-weather-app-ntl-serverless-functions`
 4. Inside the project directory :
-
-- Install the project dependencies : `npm install`
-- Run the application in development mode using Netlify serverless functions : `netlify dev` or its shortcut `ntl dev`
-
+  - Install the project dependencies : `npm install`
+  - Run the application in development mode using Netlify serverless functions : `netlify dev` or its shortcut `ntl dev`
 5. Open http://localhost:8888 in your browser to view the development server.
 
 ## Getting Started with Create React App
