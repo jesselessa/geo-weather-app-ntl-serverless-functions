@@ -38,6 +38,8 @@
   },
   "devDependencies": {
     "netlify-cli": "^17.16.1",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "postcss": ">=8.4.31"
+
   }
 }
