@@ -3,7 +3,7 @@ import "./App.css";
 
 function App() {
   const [city, setCity] = useState("Paris");
-  const [temperature, setTemperature] = useState(0); // To fix bug with undefined
+  const [temperature, setTemperature] = useState(0); // Fix bug with value 'undefined'
 
   //!--------- WARNING IF YOU WANT TO USE GEOLOCATION ---------!\\
   // !!!!!!! DO NOT PUSH YOUR EXPOSED API KEY ON GITHUB !!!!!!! \\

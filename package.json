@@ -38,6 +38,7 @@
   },
   "devDependencies": {
     "netlify-cli": "^17.36.2",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "send": "^0.19.0"
   }
 }
