@@ -37,7 +37,7 @@
     ]
   },
   "devDependencies": {
-    "netlify-cli": "^17.16.1",
+    "netlify-cli": "^17.36.2",
     "react-scripts": "^5.0.1"
   }
 }
